@@ -1,0 +1,16 @@
+<div ng-controller="myCtrl">
+<div>database</div>
+    <div ng-bind="myService.text"></div>
+    <div ng-repeat="item in text">
+        <div ng-bind="item.id"></div>
+        <div ng-bind="item.name"></div>
+    </div>
+</div>
+<div ng-controller="myCtrl2"><span>instance_redis</span>
+<button ng-click="click()">change</button>
+
+</div>
+<div ng-controller="myCtrl3">
+<button ng-click="click()">change</button>
+	<div ng-bind="myService.text"></div>
+</div>

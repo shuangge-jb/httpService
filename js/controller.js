@@ -71,9 +71,13 @@ myApp.controller('myCtrl', ['$scope', 'myService2', function($scope, myService) 
         ]
     };
     
+    //通过controller继承改变共享数据
     $scope.change = function() {
         console.log("change");
+        myService.changeData();
     };
+    this.change=$scope.change;
+
     // var promise = myService.getData();
     // promise.then(function(response) {
     //     $scope.text = response.data.entity;
@@ -98,12 +102,12 @@ myApp.controller('myCtrl2', ['$scope', '$controller', function($scope, $controll
     $scope.text = '666';
 
     $scope.click = function() {
-        parentCtrl.change();
+        parentCtrl.change();//调用父controller的方法
 
         console.log($scope.text);
     };
 }]);
-
+//使用service共享数据
 myApp.controller('myCtrl3', ['$scope', 'myService2', function($scope, myService) {
 
     $scope.text = '666';
